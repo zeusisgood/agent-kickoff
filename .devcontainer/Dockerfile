@@ -32,7 +32,7 @@ RUN apt-get update \
 USER ${USERNAME}
 WORKDIR /home/${USERNAME}
 
-# Claude Code はネイティブインストーラで入れる（Node.js 不要）。
+# Claude Code はネイティブインストーラで入れる（Claude Code 自体は Node.js 不要）。
 # .claude は先に作っておき、名前付きボリュームの持ち主を vscode にする。
 RUN mkdir -p /home/${USERNAME}/.claude \
  && if [ "${INSTALL_CLAUDE_CODE}" = "true" ]; then curl -fsSL https://claude.ai/install.sh | bash; fi

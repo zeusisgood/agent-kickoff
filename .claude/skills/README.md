@@ -10,4 +10,5 @@
 | `ponytail-review` | 同上の `skills/ponytail-review/` | 同上 | MIT | 同上 |
 
 - ponytail の 3 つは、ユーザーが `/ponytail`・`/ponytail-audit`・`/ponytail-review` と打ったときだけ動く。
-- 更新を取り込むときは、元のリポの差分を読んでから写し直し、この表のコミットを書き換える。
+- 更新を取り込むときは、元のリポの差分を読んでから写し直し、この表のコミットを書き換える。ponytail の 3 つには `disable-model-invocation: true` を足し直す。
+- 案件では、各ディレクトリの `LICENSE` を消さない（MIT の表示義務）。
