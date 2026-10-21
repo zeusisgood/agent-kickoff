@@ -1,0 +1,20 @@
+# 秘密情報
+.env
+.env.*
+!.env.example
+
+# Claude Code（個人の設定）
+.claude/settings.local.json
+CLAUDE.local.md
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# エディタ
+.idea/
+*.swp
+*~
+.vscode/*
+!.vscode/extensions.json

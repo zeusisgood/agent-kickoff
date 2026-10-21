@@ -1,0 +1,30 @@
+{
+  // 案件名に変える
+  "name": "project",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      // 言語の公式 slim イメージに変える（なければこのまま）
+      "BASE_IMAGE": "debian:trixie-slim",
+      // Claude Code を使わないなら false
+      "INSTALL_CLAUDE_CODE": "true"
+    }
+  },
+  "remoteUser": "vscode",
+  // Claude Code のログイン状態と設定を、作り直しても残す（案件ごとに分ける）
+  "mounts": [
+    "source=claude-code-config-${devcontainerId},target=/home/vscode/.claude,type=volume"
+  ],
+  "containerEnv": {
+    "CLAUDE_CONFIG_DIR": "/home/vscode/.claude"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "anthropic.claude-code",
+        "EditorConfig.EditorConfig"
+      ]
+    }
+  }
+  // 通信を制限する場合は、使うエージェントの公式文書のドメインを許可に含める（rules 9 章）
+}
