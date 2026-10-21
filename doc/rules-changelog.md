@@ -4,6 +4,12 @@
 
 案件に取り込むときに読むので、各項目は 1 行で、何が変わったかと関係する rules-adr の番号を書く。案件ごとに直しているファイル（`AGENTS.md`・`CLAUDE.md`・`.claude/`・`.devcontainer/` など）の変更は、そのファイル名を書く。
 
+## 2026.10.3 (2026-10-21)
+
+- `.devcontainer/Dockerfile`：基盤イメージに UID・GID 1000 の利用者（`node`・`ubuntu` など）がいれば消してから `vscode` を作る。別の UID で作られて、ワークスペースに書き込めなかった
+- `AGENTS.md`：原本ではこの文書ではなく `doc/upstream-prompt.md` に従う、の 1 行を冒頭に足す（案件では当てはまらない）
+- 原本ではタグも Release も作らない、を `doc/upstream-prompt.md` に明記（rules-adr 0006）
+
 ## 2026.10.2 (2026-10-21)
 
 - 原本のライセンスを CC0-1.0 にした。テンプレートの `LICENSE` は案件のライセンスに置き換える（README・`KICKOFF.md`、rules-adr 0016）。既存の案件では、原本の `LICENSE` を取り込まない

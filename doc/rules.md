@@ -2,7 +2,7 @@
 
 ## 0. この文書について
 
-- **ルール版：2026.10.2**（変更点は [`doc/rules-changelog.md`](rules-changelog.md)）
+- **ルール版：2026.10.3**（変更点は [`doc/rules-changelog.md`](rules-changelog.md)）
 - 原本は [zeusisgood/agent-kickoff](https://github.com/zeusisgood/agent-kickoff)。各案件にはテンプレートから複製され、**案件内の版を正とする**。
 - 案件では、この文書と `doc/rules-adr/` を直接直さない。変えるのは原本から取り込むときだけ（13 章）。案件固有の決まりは `AGENTS.md` か `doc/adr/` に書く。
 - コーディングエージェント（以下「エージェント」）が守るルール。特定のエージェントに依存しない。エージェントごとの設定は「付録 B」に置く。
