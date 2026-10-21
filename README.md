@@ -49,8 +49,9 @@ GitHub でこのリポを開き、「Use this template」→「Create a new repo
 
 1. 1 で受け取ったファイルを、同じパスに置きます（上書きします）。
 2. `KICKOFF.md` を削除します。
-3. Claude Code を使わない場合は、`CLAUDE.md`・`.claude/`・`.github/workflows/claude.yml` を削除します。
-4. 最初のコミットを `main` に push します（この最初の 1 回だけは直接 push してよいです）。
+3. `LICENSE` を案件のライセンスに置き換えます。1 で受け取っていればそれを置き、ライセンスを付けないなら削除します。そのままにすると、案件が CC0-1.0 になります。
+4. Claude Code を使わない場合は、`CLAUDE.md`・`.claude/`・`.github/workflows/claude.yml` を削除します。
+5. 最初のコミットを `main` に push します（この最初の 1 回だけは直接 push してよいです）。
 
 ### 4. （任意）PR のコメントで Claude を呼べるようにする
 
@@ -77,6 +78,8 @@ PR や issue のコメントに `@claude` と書くと、Claude が答えるよ�
 - `.claude/`（Claude Code を使う場合）・`.devcontainer/`・`.github/workflows/`
 - `.gitignore`・`.editorconfig`・`.gitattributes`
 
+`LICENSE` はコピーしません（案件のライセンスを使います）。
+
 そのうえで、チャットでの相談（1）から始めます。相談の前に、相手のエージェントが既存のコードから今の規約（命名・構成・テストの書き方など）を抜き出し、ルールと食い違う所をどちらに揃えるか相談します。
 
 ## 日々の流れ
@@ -100,6 +103,7 @@ PR や issue のコメントに `@claude` と書くと、Claude が答えるよ�
 | [doc/rules-adr/](doc/rules-adr/README.md) | 共通ルールを決めた理由と採らなかった案（ADR） |
 | [doc/rules-changelog.md](doc/rules-changelog.md) | 共通ルールの変更履歴（ルール版ごと） |
 | [doc/upstream-prompt.md](doc/upstream-prompt.md) | 案件で生まれたルールを原本に入れるときのプロンプトの雛形 |
+| [LICENSE](LICENSE) | このリポのライセンス（CC0-1.0）。案件では置き換える |
 | [KICKOFF.md](KICKOFF.md) | キックオフで相談相手のエージェントが従う手順 |
 | `AGENTS.md` | エージェントの入口。案件ごとに書き換える |
 | `CLAUDE.md` | Claude Code の入口（`AGENTS.md` を取り込む） |
@@ -126,4 +130,4 @@ PR や issue のコメントに `@claude` と書くと、Claude が答えるよ�
 
 ## ライセンス
 
-未定です（[ADR 0002](doc/rules-adr/0002-public-template-repo-no-skill.md) の未決事項）。
+[CC0-1.0](LICENSE) です。著作権を放棄しているので、表示を残す必要はなく、自由に複製・改変して使えます。テンプレートから作った案件には、好きなライセンスを付けてください（理由は [ADR 0016](doc/rules-adr/0016-cc0-license.md)）。

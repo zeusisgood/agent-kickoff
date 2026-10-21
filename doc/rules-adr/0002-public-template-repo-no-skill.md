@@ -45,3 +45,5 @@ Claude Code 向けのキックオフ（仕様書・devcontainer・`CLAUDE.md`）
 （注: 2026-10-21、[0011](0011-agent-neutral-agent-kickoff.md) でリポ名を `agent-kickoff` に変え、エージェントに依存しない形にした。本文中の `claude-kickoff` は当時の名前。）
 
 （注: 2026-10-21、未決事項の「原本の更新を既存の案件に取り込む手順」は [0013](0013-downstream-rule-version-check.md) で決めた。）
+
+（注: 2026-10-21、未決事項の「claude-kickoff 自体のライセンス」は [0016](0016-cc0-license.md) で決めた。）
