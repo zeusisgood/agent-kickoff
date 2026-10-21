@@ -2,6 +2,8 @@
 
 <!-- キックオフ時に、案件固有の内容で書き換える。エージェント固有の指示は CLAUDE.md などの入口ファイルに書く。 -->
 
+このリポが原本（zeusisgood/agent-kickoff）なら、この文書の「要点」ではなく、[doc/upstream-prompt.md](doc/upstream-prompt.md) の「原本を直すときの注意」に従う。
+
 ## 最初に読むもの
 
 | 目的 | 文書 |
