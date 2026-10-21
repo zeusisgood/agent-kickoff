@@ -2,7 +2,7 @@
 
 - 状態：提案
 - 日付：2026-10-21
-- 関連：rules 9 章・付録 B・[0002](0002-public-template-repo-no-skill.md)・[0009](0009-devcontainer-slim-native-installer.md)
+- 関連：rules 9 章・付録 B・`.github/workflows/claude.yml`・[0002](0002-public-template-repo-no-skill.md)・[0009](0009-devcontainer-slim-native-installer.md)
 
 ## 背景
 
@@ -23,6 +23,7 @@
 - devcontainer に Node.js を入れる。基盤イメージに `node` がないときだけ、apt の `nodejs` を入れる。
 - 通信制限は入れない。隔離環境がないとき、security-audit は対象のコードを実行せず、見つけたものを `needs_validation` に留める。
 - クラウドセッションでは devcontainer は使われない、と付録 B に書く。道具を足すのは環境の設定スクリプトになる。
+- GitHub Action（`claude.yml`）の上限を `--max-turns 100`・`timeout-minutes: 60` に上げる。レビューと `ponytail-audit` くらいまでを Action で回す。security-audit は、途中の様子を見ながら回せるローカルかクラウドセッションで行う。Action で足りないときも同じ。
 
 ## 採らなかった案
 
@@ -33,6 +34,8 @@
 | SessionStart フックで毎回取ってくる | 版が固定されない。通信の許可が要る |
 | `ponytail` を標準で on にする | rules（テストなど）との食い違いが常に起きうる |
 | Node を常に apt で入れる | `node:*-slim` を基盤にした案件で Node が 2 つになる |
+| Action の上限を今のまま（30 ターン・30 分）にする | `ponytail-audit` が途中で止まりやすい |
+| Action で security-audit まで回せる上限（300 ターン・180 分前後）にする | 1 回でサブスクリプションの利用枠を大きく使う。手元の作業と同じ枠を減らす。PR のコメントでは途中の判断を挟みにくい |
 | 通信制限を任意または標準で入れる | `NET_ADMIN` の権限と工数が要る（0009 と同じ理由） |
 | 13 章の手順もスキルにする | 手順が rules とスキルの 2 か所になる（0002） |
 
@@ -43,7 +46,7 @@
   - 写しなので、元のリポの更新は手で取り込む。
   - devcontainer のイメージが Node の分だけ大きくなる。
   - `ponytail` の off はモデルが指示に従うかどうかに頼る。確実に止めるには新しいセッションにする。
-  - Action の `--max-turns 30` では security-audit を最後まで回せない。監査はローカルかクラウドセッションで行う。
+  - Action が暴走したときに使う利用枠が、今の約 3 倍になる。
   - security-audit で対象のコードを実行して確かめることはできない。
 
 ## 未決事項
