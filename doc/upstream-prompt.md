@@ -15,6 +15,7 @@
   - `doc/rules.md`：本文と、冒頭のルール版（`YYYY.M.N`）。
   - `doc/rules-adr/`：新しい ADR。番号は原本の最新の次を振る。一覧の `README.md` にも足す。
   - `doc/rules-changelog.md`：一番上に新しい版の節を足す。
+- 原本ではタグも GitHub Release も作らない。版は `doc/rules.md` 冒頭のルール版と `doc/rules-changelog.md` の節で表す（rules 3 章の「タグ」は案件向け。`release.yml` は案件の `CHANGELOG.md` を読む）。
 - 雛形のファイル（`.claude/`・`.devcontainer/`・`KICKOFF.md`・`README.md` など）も変える必要があれば、変更履歴にそのファイル名を書く。
 - ブランチは `<エージェント名>/<内容が分かる英語>`。PR は出すが Merge はしない。
 

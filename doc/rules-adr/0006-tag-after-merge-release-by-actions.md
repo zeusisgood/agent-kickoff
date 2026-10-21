@@ -35,3 +35,5 @@ Merge はユーザーが行う。そのため、Claude がタグを付ける時�
 なし
 
 （注: 2026-10-21、[0011](0011-agent-neutral-agent-kickoff.md) でリポ名を `agent-kickoff` に変え、エージェントに依存しない形にした。本文中の `claude-kickoff` は当時の名前。）
+
+（注: 2026-10-21、原本ではタグも Release も作らない。原本の `CHANGELOG.md` は案件向けの空の雛形で、`release.yml` が必ず失敗するため。原本の版は `doc/rules.md` のルール版と `doc/rules-changelog.md` で表す。`doc/upstream-prompt.md` に明記した。）
