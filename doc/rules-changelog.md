@@ -4,6 +4,10 @@
 
 案件に取り込むときに読むので、各項目は 1 行で、何が変わったかと関係する rules-adr の番号を書く。案件ごとに直しているファイル（`AGENTS.md`・`CLAUDE.md`・`.claude/`・`.devcontainer/` など）の変更は、そのファイル名を書く。
 
+## 2026.10.2 (2026-10-21)
+
+- 原本のライセンスを CC0-1.0 にした。テンプレートの `LICENSE` は案件のライセンスに置き換える（README・`KICKOFF.md`、rules-adr 0016）。既存の案件では、原本の `LICENSE` を取り込まない
+
 ## 2026.10.1 (2026-10-21)
 
 - 仕様書を承認したら、作業の分解 `doc/spec/TASKS_…` を書く。雛形 `doc/spec/_tasks_template.md` を追加（2 章、rules-adr 0014）
