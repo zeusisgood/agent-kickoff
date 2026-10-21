@@ -47,3 +47,5 @@ Claude Code 向けのキックオフ（仕様書・devcontainer・`CLAUDE.md`）
 （注: 2026-10-21、未決事項の「原本の更新を既存の案件に取り込む手順」は [0013](0013-downstream-rule-version-check.md) で決めた。）
 
 （注: 2026-10-21、未決事項の「claude-kickoff 自体のライセンス」は [0016](0016-cc0-license.md) で決めた。）
+
+（注: 2026-10-21、[0018](0018-bundle-third-party-skills.md) で、案件で使う道具として外部のスキルを雛形に同梱した。この ADR の「スキルは作らない」は、ルールを配る手段としてのスキルの話で、変わらない。）

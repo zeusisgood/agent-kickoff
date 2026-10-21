@@ -4,6 +4,16 @@
 
 案件に取り込むときに読むので、各項目は 1 行で、何が変わったかと関係する rules-adr の番号を書く。案件ごとに直しているファイル（`AGENTS.md`・`CLAUDE.md`・`.claude/`・`.devcontainer/` など）の変更は、そのファイル名を書く。
 
+## 2026.10.5 (2026-10-21)
+
+- `.claude/skills/`：外部のスキル `security-audit`（cloudflare）と `ponytail`・`ponytail-audit`・`ponytail-review`（DietrichGebert）を写して同梱。ponytail の 3 つは打ったときだけ動く。出どころは `.claude/skills/README.md`（付録 B、rules-adr 0018）
+- 案件への取り込み：`.claude/skills/` は差分ではなく、ディレクトリごと（`LICENSE` を含めて）写す。`CLAUDE.md`・Dockerfile・`claude.yml` は下の差分を手で反映する
+- `.devcontainer/Dockerfile`：基盤イメージに `node` がなければ apt の `nodejs` を入れる（security-audit の検証スクリプト用）
+- `.github/workflows/claude.yml`：上限を 100 ターン・60 分に上げる
+- `README.md`・`KICKOFF.md`：ファイル一覧に `.claude/skills/` を足す。`LICENSE` を置き換えるときも `.claude/skills/*/LICENSE` は残す、と書く（rules-adr 0016 に注記）
+- `CLAUDE.md`：ponytail は打ったときだけ使い、rules と食い違えば rules に従う。`/ponytail-review` は `reviewer` の代わりにしない
+- 付録 B に、クラウドセッションでは devcontainer が使われないことと、security-audit は隔離環境がなければ対象のコードを実行しないことを足す
+
 ## 2026.10.4 (2026-10-21)
 
 - ブランチ名は切る前に提案し、ユーザーの了承を得る。相談の「決めてほしいこと」に含める。依頼文で指定されていれば要らない（3 章、rules-adr 0017）。雛形ファイルへの影響はない

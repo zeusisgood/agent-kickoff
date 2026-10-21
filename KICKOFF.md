@@ -33,7 +33,7 @@
 | `.devcontainer/devcontainer.json` | `BASE_IMAGE` を言語の公式 slim イメージに変えたもの。Claude Code を使わないなら `INSTALL_CLAUDE_CODE` を `false` に |
 | `.devcontainer/Dockerfile` | 必要なら、言語の道具を足したもの |
 | `README.md` | 案件の README（入門だけ）。テンプレートの README と置き換える |
-| `LICENSE` | 決めたライセンスの本文。テンプレートの `LICENSE`（CC0-1.0）と置き換える。ライセンスを付けないなら、削除するよう伝える |
+| `LICENSE` | 決めたライセンスの本文。テンプレートの `LICENSE`（CC0-1.0）と置き換える。ライセンスを付けないなら、削除するよう伝える。`.claude/skills/*/LICENSE` は同梱のスキルのものなので残す |
 
 渡すときは、README の「使い方（新しい案件）」の手順を見るよう伝える。
 
