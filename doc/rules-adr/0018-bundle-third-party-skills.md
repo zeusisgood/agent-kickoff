@@ -1,6 +1,6 @@
 # 0018. 外部のスキルを雛形に同梱する
 
-- 状態：提案
+- 状態：承認
 - 日付：2026-10-21
 - 関連：rules 9 章・付録 B・`.github/workflows/claude.yml`・[0002](0002-public-template-repo-no-skill.md)・[0009](0009-devcontainer-slim-native-installer.md)
 
@@ -19,6 +19,8 @@
   - `security-audit`：cloudflare/security-audit-skill の `skills/security-audit/`（`c1c8a8c`）
   - `ponytail`・`ponytail-audit`・`ponytail-review`：DietrichGebert/ponytail の `skills/` の同名ディレクトリ（`09c434a`）
 - `ponytail` の人格は標準で off にする。frontmatter に `disable-model-invocation: true` を足し、ユーザーが `/ponytail` と打ったときだけ有効にする。止めるときは「stop ponytail」と言うか、新しいセッションにする。フックとプラグインの機能は入れない。
+- `ponytail-audit`・`ponytail-review` にも同じ 1 行を足す。説明文が「review this」「audit this codebase」で発動するため、PR の前の `reviewer` や `security-audit` の代わりに選ばれないようにする。
+- 出どころ・コミット・写したあとの変更は `.claude/skills/README.md` に書く。
 - `ponytail` と rules が食い違うときは rules に従う。PR の前に必ず通すレビューは `reviewer` のまま（rules 8 章）。`ponytail-review` は任意で追加する。
 - devcontainer に Node.js を入れる。基盤イメージに `node` がないときだけ、apt の `nodejs` を入れる。
 - 通信制限は入れない。隔離環境がないとき、security-audit は対象のコードを実行せず、見つけたものを `needs_validation` に留める。

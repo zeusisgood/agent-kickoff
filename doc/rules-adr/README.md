@@ -21,4 +21,4 @@
 | [0015](0015-keep-the-process-light.md) | 進め方を重くしすぎない | 承認 | 文書だけの変更は仕様書なし。rules は 300 行まで |
 | [0016](0016-cc0-license.md) | 原本のライセンスを CC0-1.0 にする | 承認 | 案件に条件を残さない。テンプレートの LICENSE は案件で置き換える |
 | [0017](0017-propose-branch-name-before-work.md) | ブランチ名は切る前に提案し、了承を得る | 承認 | 環境が割り当てる名前は内容と関係ない。相談で了承を得て、別の名前への push の許可にする |
-| [0018](0018-bundle-third-party-skills.md) | 外部のスキルを雛形に同梱する | 提案 | security-audit と ponytail を `.claude/skills/` に写す。ponytail は標準で off。devcontainer に Node |
+| [0018](0018-bundle-third-party-skills.md) | 外部のスキルを雛形に同梱する | 承認 | security-audit と ponytail を `.claude/skills/` に写す。ponytail は打ったときだけ。devcontainer に Node |

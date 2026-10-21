@@ -2,7 +2,7 @@
 
 ## 0. この文書について
 
-- **ルール版：2026.10.4**（変更点は [`doc/rules-changelog.md`](rules-changelog.md)）
+- **ルール版：2026.10.5**（変更点は [`doc/rules-changelog.md`](rules-changelog.md)）
 - 原本は [zeusisgood/agent-kickoff](https://github.com/zeusisgood/agent-kickoff)。各案件にはテンプレートから複製され、**案件内の版を正とする**。
 - 案件では、この文書と `doc/rules-adr/` を直接直さない。変えるのは原本から取り込むときだけ（13 章）。案件固有の決まりは `AGENTS.md` か `doc/adr/` に書く。
 - コーディングエージェント（以下「エージェント」）が守るルール。特定のエージェントに依存しない。エージェントごとの設定は「付録 B」に置く。
@@ -267,8 +267,11 @@
 | 入口 | `CLAUDE.md` | `@AGENTS.md` を取り込み、Claude 固有の指示を足す |
 | 役割（8 章） | `.claude/agents/` | 探索 `Explore`（`haiku`）・ログ要約 `log-summarizer`（`haiku`）・レビュー `reviewer`（`sonnet`） |
 | 禁止（10 章） | `.claude/settings.json` | 権限の deny ルール |
-| PR を呼んで見てもらう | `.github/workflows/claude.yml` | PR や issue のコメントで `@claude`。認証はサブスクリプション用トークン `CLAUDE_CODE_OAUTH_TOKEN`（API 課金なし） |
-| devcontainer | `.devcontainer/` | ネイティブインストーラで入れる。`INSTALL_CLAUDE_CODE` を `false` にすると入れない |
+| スキル | `.claude/skills/` | 外部から写した `security-audit`・`ponytail`・`ponytail-audit`・`ponytail-review`。ponytail の 3 つは打ったときだけ動く（出どころは同じ所の `README.md`） |
+| PR を呼んで見てもらう | `.github/workflows/claude.yml` | PR や issue のコメントで `@claude`。認証はサブスクリプション用トークン `CLAUDE_CODE_OAUTH_TOKEN`（API 課金なし）。上限は 100 ターン・60 分 |
+| devcontainer | `.devcontainer/` | ネイティブインストーラで入れる。`INSTALL_CLAUDE_CODE` を `false` にすると入れない。`security-audit` の検証用に Node.js を入れる（基盤イメージにないときだけ） |
 
 - Explore は `CLAUDE.md` も `AGENTS.md` も読まない。守らせたい規則は依頼文に書く。
+- クラウドセッションでは devcontainer は使われない。道具を足すのは環境の設定スクリプト。
+- `security-audit` は隔離環境（外部通信なし）がなければ対象のコードを実行せず、見つけたものを `needs_validation` に留める。全体の監査は Action ではなく、ローカルかクラウドセッションで回す。
 - 仕組みの詳細は公式文書に任せる：<https://code.claude.com/docs/en/sub-agents>・<https://code.claude.com/docs/en/memory>

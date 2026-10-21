@@ -113,6 +113,7 @@ PR や issue のコメントに `@claude` と書くと、Claude が答えるよ�
 | `.devcontainer/` | slim イメージ＋`vscode` ユーザー＋Claude Code（入れないこともできる） |
 | `.claude/agents/` | Claude Code のサブエージェント（探索・ログ要約・レビュー） |
 | `.claude/settings.json` | Claude Code に禁止する操作（force push・Merge など） |
+| `.claude/skills/` | Claude Code のスキル（外部から写した security-audit・ponytail。出どころは中の `README.md`） |
 | `.github/workflows/` | `@claude` の呼び出し・タグからの Release 作成 |
 
 ## カスタマイズ
