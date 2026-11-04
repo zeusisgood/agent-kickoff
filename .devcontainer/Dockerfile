@@ -10,6 +10,7 @@ ARG USER_GID=1000
 ARG INSTALL_CLAUDE_CODE=true
 
 # 共通の道具。言語の道具は案件ごとにこの RUN に足す（RUN を増やさない）。
+# Node.js は .claude/skills/security-audit の検証スクリプト用。基盤イメージにあれば入れない（2 つにしない）。
 # sudo は入れない（Claude に root を渡さない）。足したい道具は Dockerfile に書いて作り直す。
 # UID・GID が使用中（node の node、ubuntu の ubuntu など）なら、その持ち主を消してから作る。
 # 別の UID で作ると、Dev Containers が手元の UID に合わせられず、ワークスペースに書き込めない。
@@ -17,6 +18,7 @@ ARG INSTALL_CLAUDE_CODE=true
 RUN apt-get update \
  && apt-get install -y --no-install-recommends \
       ca-certificates curl git gh less jq ripgrep openssh-client \
+      $(command -v node >/dev/null || echo nodejs) \
  && rm -rf /var/lib/apt/lists/* \
  && if ! id -u "${USERNAME}" >/dev/null 2>&1; then \
       old=$(getent passwd "${USER_UID}" | cut -d: -f1) \
@@ -30,7 +32,7 @@ RUN apt-get update \
 USER ${USERNAME}
 WORKDIR /home/${USERNAME}
 
-# Claude Code はネイティブインストーラで入れる（Node.js 不要）。
+# Claude Code はネイティブインストーラで入れる（Claude Code 自体は Node.js 不要）。
 # .claude は先に作っておき、名前付きボリュームの持ち主を vscode にする。
 RUN mkdir -p /home/${USERNAME}/.claude \
  && if [ "${INSTALL_CLAUDE_CODE}" = "true" ]; then curl -fsSL https://claude.ai/install.sh | bash; fi

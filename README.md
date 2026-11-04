@@ -49,7 +49,7 @@ GitHub でこのリポを開き、「Use this template」→「Create a new repo
 
 1. 1 で受け取ったファイルを、同じパスに置きます（上書きします）。
 2. `KICKOFF.md` を削除します。
-3. `LICENSE` を案件のライセンスに置き換えます。1 で受け取っていればそれを置き、ライセンスを付けないなら削除します。そのままにすると、案件が CC0-1.0 になります。
+3. `LICENSE` を案件のライセンスに置き換えます。1 で受け取っていればそれを置き、ライセンスを付けないなら削除します。そのままにすると、案件が CC0-1.0 になります。`.claude/skills/*/LICENSE` は同梱のスキルのものなので、消さずに残します。
 4. Claude Code を使わない場合は、`CLAUDE.md`・`.claude/`・`.github/workflows/claude.yml` を削除します。
 5. 最初のコミットを `main` に push します（この最初の 1 回だけは直接 push してよいです）。
 
@@ -113,6 +113,7 @@ PR や issue のコメントに `@claude` と書くと、Claude が答えるよ�
 | `.devcontainer/` | slim イメージ＋`vscode` ユーザー＋Claude Code（入れないこともできる） |
 | `.claude/agents/` | Claude Code のサブエージェント（探索・ログ要約・レビュー） |
 | `.claude/settings.json` | Claude Code に禁止する操作（force push・Merge など） |
+| `.claude/skills/` | Claude Code のスキル（外部から写した security-audit・ponytail。出どころは中の `README.md`） |
 | `.github/workflows/` | `@claude` の呼び出し・タグからの Release 作成 |
 
 ## カスタマイズ
@@ -130,4 +131,4 @@ PR や issue のコメントに `@claude` と書くと、Claude が答えるよ�
 
 ## ライセンス
 
-[CC0-1.0](LICENSE) です。著作権を放棄しているので、表示を残す必要はなく、自由に複製・改変して使えます。テンプレートから作った案件には、好きなライセンスを付けてください（理由は [ADR 0016](doc/rules-adr/0016-cc0-license.md)）。
+[CC0-1.0](LICENSE) です。著作権を放棄しているので、表示を残す必要はなく、自由に複製・改変して使えます。ただし `.claude/skills/` の外部のスキルは元のライセンス（MIT）のままで、各ディレクトリの `LICENSE` を残す必要があります（[ADR 0018](doc/rules-adr/0018-bundle-third-party-skills.md)）。テンプレートから作った案件には、好きなライセンスを付けてください（理由は [ADR 0016](doc/rules-adr/0016-cc0-license.md)）。
