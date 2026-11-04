@@ -4,6 +4,10 @@
 
 案件に取り込むときに読むので、各項目は 1 行で、何が変わったかと関係する rules-adr の番号を書く。案件ごとに直しているファイル（`AGENTS.md`・`CLAUDE.md`・`.claude/`・`.devcontainer/` など）の変更は、そのファイル名を書く。
 
+## 2026.11.0 (2026-11-04)
+
+- 作業を始めるときに開いている PR を確かめ、あれば並べて、既存のブランチに積む・Merge を待つ・並行する のどれにするかを聞く（2 章、rules-adr 0019）。雛形ファイルへの影響はない
+
 ## 2026.10.5 (2026-10-21)
 
 - `.claude/skills/`：外部のスキル `security-audit`（cloudflare）と `ponytail`・`ponytail-audit`・`ponytail-review`（DietrichGebert）を写して同梱。ponytail の 3 つは打ったときだけ動く。出どころは `.claude/skills/README.md`（付録 B、rules-adr 0018）
